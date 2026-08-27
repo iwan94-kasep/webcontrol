@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tritans-Massage</title>
+    <!--java script-->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!--css-->
+    <link rel="stylesheet"href="css\style.css">
+</head>
+<body>
+    <!--navbar star-->
+    <nav class="navbar">
+    <a href="#" class="navbar-logo">Tritans-Massage</a>
+     
+     <div class="navbar-nav">
+         
+         <a href="#Home">Home</a>
+         
+         <a href="#about">Tentang Kami</a>
+         
+         <a href="#Layanan">Layanan</a>
+                  
+         <a href="#contact">Kontak</a>
+     
+     </div>
+
+     <div class="navbar-extra">
+    
+    
+    <a href="#" id="menu"><i data-feather="menu"></i></a>
+     </div>
+    </nav>
+    
+
+     <!--navbar end-->
+
+     <!--hero sectio star-->
+     <section class="hero" id="home">
+         <main class="content">
+             <h1>Pesan Pijat Bandung</h1>
+             <p>Tritans Massage menyediakan layanan pijat di Bandung Sekitarnya dan pijat panggilan ke rumah. Pesan layanan pijat dengan mudah, nyaman, dan praktis.
+            </p>
+             <a href="" class="cta">Pesan Sekarang</a>
+         </main>
+     </section>
+
+     <!--tentang kami-->
+     <section class="about" id="about">
+    <div class="about-content">
+        <h2>Tentang <span>Tritans Massage</span></h2>
+
+
+    <p>
+        Tritans Massage hadir sebagai layanan pijat yang mengutamakan
+        kenyamanan dan kemudahan bagi Anda yang berada di Bandung dan
+        sekitarnya. Kami menyediakan layanan pijat panggilan yang
+        memungkinkan Anda menikmati waktu relaksasi tanpa perlu keluar rumah.
+    </p>
+
+    <p>
+        Dengan layanan pijat ke rumah, Anda dapat menikmati pijat dengan
+        lebih nyaman di tempat yang Anda pilih. Proses pemesanan dibuat
+        sederhana dan praktis sehingga Anda dapat menyesuaikan layanan
+        dengan kebutuhan dan waktu yang diinginkan.
+    </p>
+
+    <p>
+        Tritans Massage berkomitmen memberikan pelayanan yang ramah,
+        nyaman, dan profesional. Bagi Anda yang sedang mencari
+        <strong>pijat Bandung</strong> atau <strong>pijat panggilan ke rumah
+        di Bandung</strong>, kami siap menjadi pilihan untuk menemani
+        waktu istirahat dan relaksasi Anda.
+    </p>
+</div>
+
+
+</section>
+
+<!--layanan-->
+<section class="layanan" id="Layanan">
+    <h2>Layanan <span>Tritans Massage</span></h2>
+
+
+<div class="layanan-container">
+
+    <div class="layanan-card">
+        <h3>Paket Reguler</h3>
+
+        <div class="layanan-item">
+    <h4>Full Body Massage</h4>
+    <p>60 Menit</p>
+    <span>Rp 100.000</span>
+
+
+<a href="#" class="btn-pesan"
+   onclick="bukaPesanan('Full Body Massage', '60 Menit', 'Rp 100.000'); return false;">
+    Pesan
+</a>
+
+
+</div>
+
+<div class="layanan-item">
+    <h4>Full Body Massage</h4>
+    <p>90 Menit</p>
+    <span>Rp 150.000</span>
+
+
+<a href="#" class="btn-pesan"
+   onclick="bukaPesanan('Full Body Massage', '90 Menit', 'Rp 150.000'); return false;">
+    Pesan
+</a>
+
+
+</div>
+
+<div class="layanan-item">
+    <h4>Full Body Massage</h4>
+    <p>120 Menit</p>
+    <span>Rp 190.000</span>
+
+
+<a href="#" class="btn-pesan"
+   onclick="bukaPesanan('Full Body Massage', '120 Menit', 'Rp 190.000'); return false;">
+    Pesan
+</a>
+
+</div>
+<div class="layanan-description">
+    <p>
+        Memberikan rasa nyaman, membantu mengendurkan otot-otot tubuh yang tegang,
+        dan membantu meningkatkan kualitas tidur.
+    </p>
+</div>
+
+</div>
+    
+</div>
+
+
+
+</section>
+
+
+
+
+     <!--hero sectio end-->
+
+
+<!-- POPUP PESANAN -->
+
+<div class="popup-pesanan" id="popupPesanan">
+
+
+<div class="popup-box">
+
+    <button class="popup-close" onclick="tutupPesanan()">&times;</button>
+
+    <h2>Konfirmasi Pesanan</h2>
+
+    <div class="detail-layanan">
+        <h3 id="namaLayanan">Full Body Massage</h3>
+        <p id="durasiLayanan">60 Menit</p>
+        <strong id="hargaLayanan">Rp 100.000</strong>
+    </div>
+
+    <label for="alamat">Alamat Lengkap</label>
+
+    <div class="alamat-box">
+        <textarea id="alamat" rows="4"
+            placeholder="Alamat lengkap lokasi pijat"></textarea>
+
+        <button type="button" class="btn-gps" onclick="ambilLokasi()">
+            Gunakan Lokasi Saya
+        </button>
+    </div>
+
+    <label>Pilihan Terapis</label>
+
+    <div class="pilihan-terapis">
+
+        <label class="radio-terapis">
+            <input type="radio" name="terapis" value="Laki-laki">
+            <span>Laki-laki</span>
+        </label>
+
+        <label class="radio-terapis">
+            <input type="radio" name="terapis" value="Perempuan">
+            <span>Perempuan</span>
+        </label>
+
+    </div>
+
+    <label for="catatan">Catatan</label>
+
+    <textarea id="catatan" rows="3"
+        placeholder="Contoh: rumah pagar hitam, lantai 2, dll."></textarea>
+
+    <button type="button" class="btn-konfirmasi" onclick="konfirmasiPesanan()">
+        Konfirmasi Pesanan
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<script src="js/java.js"></script>
+
+
+
+<script>
+      feather.replace();
+    </script>
+    
+
+        
+    
+</body>
+</html>
