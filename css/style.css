@@ -18,6 +18,15 @@ body{
     color: #fff;
    /* min-height: 2000px;*/
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
 /*vavbar*/
 
 .navbar{
@@ -163,6 +172,49 @@ body{
 
 .about-content strong {
     color: var(--primary);
+}
+/* =========================
+   ABOUT FEATURES
+========================= */
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.feature-card {
+    padding: 2rem 1.5rem;
+    background: #111;
+    border: 1px solid rgba(182, 137, 91, 0.35);
+    border-radius: 1rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+
+.feature-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #bbb;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center;
 }
 
 /* =========================
@@ -575,6 +627,7 @@ transform: translateY(-2px);
      transition: 0.3s;
    
     }
+
    
    
    .navbar .navbar-nav a{
@@ -604,6 +657,10 @@ transform: translateY(-2px);
     line-height: 1.8;
     margin-bottom: 1.8rem;
 }
+.about-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+}
 
 }
 
@@ -626,5 +683,8 @@ transform: translateY(-2px);
     font-size: 1.6rem;
     line-height: 1.8;
     text-align: left;
+}
+.about-features {
+    grid-template-columns: 1fr;
 }
 }

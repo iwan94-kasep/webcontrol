@@ -1,16 +1,38 @@
 const navbarNav = document.querySelector('.navbar-nav');
-//saat di klik
-document.querySelector('#menu').onclick =() =>{
-  navbarNav.classList.toggle('active');
+
+// Saat hamburger menu diklik
+document.querySelector('#menu').onclick = (e) => {
+e.preventDefault();
+navbarNav.classList.toggle('active');
 };
 
-//saat haburger menu di click sembarang hilang
-const hamburger = document.querySelector('#menu');
-document.addEventListener('click',function(e){
-  if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)){
+// Saat link navbar diklik
+document.querySelectorAll('.navbar-nav a').forEach(link => {
+
+
+link.addEventListener('click', () => {
     navbarNav.classList.remove('active');
-  }
 });
+
+
+});
+
+// Saat klik di luar hamburger dan menu
+const hamburger = document.querySelector('#menu');
+
+document.addEventListener('click', function(e) {
+
+
+if (
+    !hamburger.contains(e.target) &&
+    !navbarNav.contains(e.target)
+) {
+    navbarNav.classList.remove('active');
+}
+
+
+});
+
 
 /*pop up pesanan*/
 let layananDipilih = {};
