@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap:https://protemass1.top/sitemap.xml

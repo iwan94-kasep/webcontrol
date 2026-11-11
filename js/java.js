@@ -38,8 +38,10 @@ if (
 let layananDipilih = {};
 let koordinatPengguna = null;
 
+
 // Buka popup
 function bukaPesanan(nama, durasi, harga) {
+
 
 layananDipilih = {
     nama: nama,
@@ -51,7 +53,6 @@ document.getElementById("namaLayanan").textContent = nama;
 document.getElementById("durasiLayanan").textContent = durasi;
 document.getElementById("hargaLayanan").textContent = harga;
 
-document.getElementById("popupPesanan").classList.add("active");
 
 // Reset form
 document.getElementById("alamat").value = "";
@@ -61,10 +62,48 @@ document.querySelectorAll('input[name="terapis"]').forEach(input => {
     input.checked = false;
 });
 
+// Reset jenis kelamin customer
+document.querySelectorAll('input[name="genderCustomer"]').forEach(input => {
+    input.checked = false;
+});
+
 koordinatPengguna = null;
 
 
+// ==============================
+// JADWAL OTOMATIS
+// ==============================
+
+const sekarang = new Date();
+
+// Tanggal hari ini
+const tanggal = sekarang.toLocaleDateString("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+});
+
+document.getElementById("tanggalJadwal").textContent = tanggal;
+
+
+// Jam otomatis 1 jam dari sekarang
+sekarang.setHours(sekarang.getHours() + 1);
+
+const jam =
+    String(sekarang.getHours()).padStart(2, "0") +
+    ":" +
+    String(sekarang.getMinutes()).padStart(2, "0");
+
+document.getElementById("jamJadwal").value = jam;
+
+
+// Tampilkan popup
+document.getElementById("popupPesanan").classList.add("active");
+
+
 }
+
 
 // Tutup popup
 function tutupPesanan() {
@@ -148,20 +187,53 @@ navigator.geolocation.getCurrentPosition(
 function konfirmasiPesanan() {
 
 
-const alamat = document.getElementById("alamat").value.trim();
+const namaCustomer =
+    document.getElementById("namaCustomer").value.trim();
 
-const terapis = document.querySelector(
-    'input[name="terapis"]:checked'
-);
+const genderCustomer =
+    document.querySelector('input[name="genderCustomer"]:checked');
 
-const catatan = document.getElementById("catatan").value.trim();
+const tanggalJadwal =
+    document.getElementById("tanggalJadwal").textContent.trim();
+
+const jamJadwal =
+    document.getElementById("jamJadwal").value;
+
+const alamat =
+    document.getElementById("alamat").value.trim();
+
+const terapis =
+    document.querySelector('input[name="terapis"]:checked');
+
+const catatan =
+    document.getElementById("catatan").value.trim();
 
 
+// Validasi nama customer
+if (!namaCustomer) {
+    alert("Silakan isi nama Anda terlebih dahulu.");
+    return;
+}
+
+// Validasi jenis kelamin customer
+if (!genderCustomer) {
+    alert("Silakan pilih gender anda terlebih dahulu.");
+    return;
+}
+
+// Validasi jam
+if (!jamJadwal) {
+    alert("Jam jadwal belum tersedia. Silakan coba buka popup kembali.");
+    return;
+}
+
+// Validasi alamat
 if (!alamat) {
     alert("Silakan isi alamat lengkap terlebih dahulu.");
     return;
 }
 
+// Validasi terapis
 if (!terapis) {
     alert("Silakan pilih jenis terapis.");
     return;
@@ -174,11 +246,18 @@ const nomorWA = "6281413529419";
 const pesan =
 
 
-`Halo Tritans Massage, saya ingin memesan:
+`Halo Protemass, saya ingin memesan:
+
+Nama Customer: ${namaCustomer}
+Jenis Kelamin Customer: ${genderCustomer.value}
 
 Layanan: ${layananDipilih.nama}
 Durasi: ${layananDipilih.durasi}
 Harga: ${layananDipilih.harga}
+
+Jadwal:
+Tanggal: ${tanggalJadwal}
+Jam: ${jamJadwal}
 
 Alamat:
 ${alamat}
@@ -199,3 +278,36 @@ tutupPesanan();
 
 
 }
+
+
+
+/*========
+isi jadwal
+=============*/
+function isiJadwalOtomatis() {
+
+const sekarang = new Date();
+
+// Tanggal hari ini
+const tanggal = sekarang.toLocaleDateString("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+});
+
+document.getElementById("tanggalJadwal").textContent = tanggal;
+
+
+// Jam sekarang
+const jam =
+    String(sekarang.getHours()).padStart(2, "0") +
+    ":" +
+    String(sekarang.getMinutes()).padStart(2, "0");
+
+document.getElementById("jamJadwal").value = jam;
+
+
+}
+
+
